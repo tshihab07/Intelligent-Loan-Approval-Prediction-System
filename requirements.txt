@@ -1,14 +1,33 @@
-numpy>=2.3.3
-pandas>=2.3.2
-matplotlib>=3.8.1
-seaborn>=0.13.2
-scikit-learn>=1.7.2
+# Core data manipulation and numerical computing
+pandas>=1.5.0
+numpy>=1.21.0
+
+# Visualization
+matplotlib>=3.5.0
+seaborn>=0.12.0
+
+# Machine Learning (Scikit-learn ecosystem)
+scikit-learn>=1.2.0
+
+# Gradient Boosting
 lightgbm>=4.0.0
-xgboost>=2.1.0
-tensorflow>=2.15.0
-scikeras>=0.11.0
-optuna>=3.3.3
-scikit-optimize>=0.8.1
-shap>=0.20.2
-fairlearn>=0.12.0
-joblib>=1.4.0
+xgboost>=1.7.0
+
+# Neural Networks (TensorFlow/Keras)
+tensorflow>=2.12.0
+
+# Scikeras wrapper for Keras in scikit-learn
+scikeras>=0.6.0
+
+# Hyperparameter Optimization
+optuna>=3.0.0
+scikit-optimize>=0.9.0
+
+# Model Interpretability
+shap>=0.42.0
+
+# Fairness and Bias Metrics (optional)
+fairlearn>=0.8.0
+
+# Persistence
+joblib>=1.2.0
