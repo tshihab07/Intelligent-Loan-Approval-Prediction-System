@@ -1,4 +1,4 @@
-Dependents,LoanAmount,CreditHistory,LoanStatus,TotalIncome,IncomeLoanRatio,LoanTermYears,Has_CoApplicantIncome,Gender_Male,Married_Yes,Education_Not Graduate,PropertyArea_Semiurban,PropertyArea_Urban,SelfEmployed_Yes
+Dependents,LoanAmount,CreditHistory,LoanStatus,TotalIncome,IncomeLoanRatio,LoanTermYears,Has_CoApplicantIncome,Gender_Male,Married_Yes,Education_NotGraduate,PropertyArea_Semiurban,PropertyArea_Urban,SelfEmployed_Yes
 0,146.36949152542374,1,1,5849.0,25.024703628897885,30.0,0,True,False,False,False,True,False
 1,128.0,1,0,6091.0,21.0146117222131,30.0,1,True,True,False,False,False,False
 0,66.0,1,1,3000.0,22.0,30.0,0,True,True,False,False,True,True
