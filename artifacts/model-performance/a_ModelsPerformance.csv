@@ -1,0 +1,2 @@
+Model,AUC-ROC,AUC-PR,Precision,Recall,F1-Score,Accuracy,CV AUC-ROC Mean,CV AUC-ROC Std,AUC-ROC (Overfit) Gap,Composite Score,Overfitting Status,Model Status
+Logistic Regression (GridSearchCV),0.879,0.923,0.878,0.857,0.867,0.821,0.776,0.028,0.102,0.853,Low,Fair
