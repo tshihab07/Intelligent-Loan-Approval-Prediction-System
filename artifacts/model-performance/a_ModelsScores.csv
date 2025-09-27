@@ -1,0 +1,2 @@
+Model,CV Mean,CV Std,Test Accuracy,Test F1-Score,Test AUC,Overfitting Gap,Composite Score
+Logistic Regression (GridSearchCV),0.776,0.028,0.821,0.867,0.879,0.102,0.853
