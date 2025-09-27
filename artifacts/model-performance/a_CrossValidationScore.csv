@@ -1,0 +1,2 @@
+Model,CV Mean,CV Std
+Logistic Regression (GridSearchCV),0.776,0.028
