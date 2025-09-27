@@ -1,0 +1,2 @@
+Model,AUC-ROC Gap,AUC-PR Gap,Precision Gap,Recall Gap,F1-Score Gap,Accuracy Gap,Overfitting Status
+Logistic Regression (GridSearchCV),0.102,0.065,0.068,0.003,0.036,0.059,Low
