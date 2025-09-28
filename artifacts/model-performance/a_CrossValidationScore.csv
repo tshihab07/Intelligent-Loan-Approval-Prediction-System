@@ -1,2 +1,3 @@
 Model,CV Mean,CV Std
+Random Forest (GridSearchCV),0.778,0.034
 Logistic Regression (GridSearchCV),0.776,0.028
