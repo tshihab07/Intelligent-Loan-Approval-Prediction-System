@@ -1,3 +1,4 @@
 Model,AUC-ROC Gap,AUC-PR Gap,Precision Gap,Recall Gap,F1-Score Gap,Accuracy Gap,Overfitting Status
+SVC (BayesSearchCV),0.005,0.013,0.004,0.05,0.036,0.03,Low
 Random Forest (GridSearchCV),0.036,0.027,0.014,0.036,0.008,0.007,Low
 Logistic Regression (GridSearchCV),0.102,0.065,0.068,0.003,0.036,0.059,Low
