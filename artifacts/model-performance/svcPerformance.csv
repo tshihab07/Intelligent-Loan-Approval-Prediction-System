@@ -1,0 +1,9 @@
+Metric,Training,Test,Gap/Generalization
+AUC-ROC,0.842,0.837,0.005
+AUC-PR,0.891,0.879,0.013
+Precision,0.895,0.891,0.004
+Recall,0.633,0.583,0.050
+F1-Score,0.741,0.705,0.036
+Accuracy,0.697,0.667,0.030
+Generalization,-,-,Best Fit
+Model Status,-,Needs Improvement,-
