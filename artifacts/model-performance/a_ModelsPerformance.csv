@@ -1,4 +1,6 @@
 Model,AUC-ROC,AUC-PR,Precision,Recall,F1-Score,Accuracy,CV AUC-ROC Mean,CV AUC-ROC Std,AUC-ROC (Overfit) Gap,Composite Score,Overfitting Status,Model Status
+XGBoost (Optuna),0.865,0.924,0.824,1.0,0.903,0.854,0.776,0.038,0.009,0.869,Low,Good
+LightGBM (Optuna),0.855,0.917,0.856,0.917,0.885,0.837,0.773,0.027,0.041,0.86,Low,Fair
 SVC (BayesSearchCV),0.837,0.879,0.891,0.583,0.705,0.667,0.478,0.026,0.005,0.72,Low,Needs Improvement
 Random Forest (GridSearchCV),0.875,0.927,0.857,0.929,0.891,0.846,0.778,0.034,0.036,0.866,Low,Fair
 Logistic Regression (GridSearchCV),0.879,0.923,0.878,0.857,0.867,0.821,0.776,0.028,0.102,0.853,Low,Fair
