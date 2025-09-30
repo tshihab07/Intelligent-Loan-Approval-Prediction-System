@@ -1,4 +1,6 @@
 Model,AUC-ROC Gap,AUC-PR Gap,Precision Gap,Recall Gap,F1-Score Gap,Accuracy Gap,Overfitting Status
+XGBoost (Optuna),0.009,0.005,0.043,0.021,0.034,0.057,Low
+LightGBM (Optuna),0.041,0.024,0.041,0.012,0.018,0.032,Low
 SVC (BayesSearchCV),0.005,0.013,0.004,0.05,0.036,0.03,Low
 Random Forest (GridSearchCV),0.036,0.027,0.014,0.036,0.008,0.007,Low
 Logistic Regression (GridSearchCV),0.102,0.065,0.068,0.003,0.036,0.059,Low
