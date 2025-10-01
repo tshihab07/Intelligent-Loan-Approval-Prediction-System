@@ -1,4 +1,5 @@
 Model,CV Mean,CV Std
+Neural Network,0.698,0.091
 XGBoost (Optuna),0.776,0.038
 LightGBM (Optuna),0.773,0.027
 SVC (BayesSearchCV),0.478,0.026
