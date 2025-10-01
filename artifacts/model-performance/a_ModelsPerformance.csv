@@ -1,4 +1,5 @@
 Model,AUC-ROC,AUC-PR,Precision,Recall,F1-Score,Accuracy,CV AUC-ROC Mean,CV AUC-ROC Std,AUC-ROC (Overfit) Gap,Composite Score,Overfitting Status,Model Status
+Neural Network,0.845,0.884,0.856,0.988,0.917,0.878,0.698,0.091,0.033,0.838,Low,Good
 XGBoost (Optuna),0.865,0.924,0.824,1.0,0.903,0.854,0.776,0.038,0.009,0.869,Low,Good
 LightGBM (Optuna),0.855,0.917,0.856,0.917,0.885,0.837,0.773,0.027,0.041,0.86,Low,Fair
 SVC (BayesSearchCV),0.837,0.879,0.891,0.583,0.705,0.667,0.478,0.026,0.005,0.72,Low,Needs Improvement
