@@ -1,4 +1,5 @@
 Model,AUC-ROC Gap,AUC-PR Gap,Precision Gap,Recall Gap,F1-Score Gap,Accuracy Gap,Overfitting Status
+Neural Network,0.033,0.014,0.063,0.009,0.041,0.069,Low
 XGBoost (Optuna),0.009,0.005,0.043,0.021,0.034,0.057,Low
 LightGBM (Optuna),0.041,0.024,0.041,0.012,0.018,0.032,Low
 SVC (BayesSearchCV),0.005,0.013,0.004,0.05,0.036,0.03,Low
