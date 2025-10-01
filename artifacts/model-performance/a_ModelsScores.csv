@@ -1,4 +1,5 @@
 Model,CV Mean,CV Std,Test Accuracy,Test F1-Score,Test AUC,Overfitting Gap,Composite Score
+Neural Network,0.698,0.091,0.878,0.917,0.845,0.033,0.838
 XGBoost (Optuna),0.776,0.038,0.854,0.903,0.865,0.009,0.869
 LightGBM (Optuna),0.773,0.027,0.837,0.885,0.855,0.041,0.86
 SVC (BayesSearchCV),0.478,0.026,0.667,0.705,0.837,0.005,0.72
