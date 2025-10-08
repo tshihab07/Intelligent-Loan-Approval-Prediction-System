@@ -1,0 +1,32 @@
+<!-- templates/result.html -->
+{% extends "base.html" %}
+
+{% block title %}Loan Approval Result{% endblock %}
+
+{% block content %}
+<div class="text-center">
+    <h2>Loan Application Result</h2>
+    
+    {% if status == "Approved" %}
+        <div class="alert alert-success mt-4" style="font-size: 2rem; font-weight: bold; padding: 2rem;">
+            🎉 <strong>CONGRATULATIONS!</strong><br>
+            Your loan has been <strong>APPROVED</strong>!
+        </div>
+        <p class="mt-3">Approval Probability: <strong>{{ proba_percent }}%</strong></p>
+        <p>Your application ID is: <strong>#{{ application_id }}</strong></p>
+    {% else %}
+        <div class="alert alert-danger mt-4" style="font-size: 2rem; font-weight: bold; padding: 2rem;">
+            ❌ <strong>WE'RE SORRY</strong><br>
+            Your loan application has been <strong>REJECTED</strong>.
+        </div>
+        <p class="mt-3">Approval Probability: <strong>{{ proba_percent }}%</strong></p>
+        <p class="mt-2">Your application ID is: <strong>#{{ application_id }}</strong></p>
+        <p class="text-muted">You can reapply after 30 days or contact our support team.</p>
+    {% endif %}
+    
+    <div class="mt-4">
+        <a href="{{ url_for('main.index') }}" class="btn btn-outline-primary">Apply Again</a>
+        <a href="{{ url_for('main.login') }}" class="btn btn-outline-secondary">Admin Login</a>
+    </div>
+</div>
+{% endblock %}
