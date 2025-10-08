@@ -31,3 +31,10 @@ fairlearn>=0.8.0
 
 # Persistence
 joblib>=1.2.0
+
+# Web Framework for Deployment
+Flask==2.3.3
+Flask-SQLAlchemy==3.0.5
+Flask-Login==0.6.3
+Flask-WTF==1.1.1
+gunicorn==21.2.0
