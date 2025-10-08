@@ -1,0 +1,145 @@
+<!-- templates/apply.html -->
+{% extends "base.html" %}
+
+{% block title %}Loan Application - Step 2{% endblock %}
+
+{% block content %}
+<h2 class="text-center mb-4">Loan Application Details</h2>
+<p class="text-center">Please fill in your loan application details.</p>
+
+<form method="POST" class="needs-validation" novalidate>
+    {{ form.hidden_tag() }}
+    
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            {{ form.gender.label(class="form-label") }}
+            {% for subfield in form.gender %}
+                <div class="form-check">
+                    {{ subfield(class="form-check-input") }}
+                    {{ subfield.label(class="form-check-label") }}
+                </div>
+            {% endfor %}
+            {% for error in form.gender.errors %}
+                <div class="invalid-feedback d-block">{{ error }}</div>
+            {% endfor %}
+        </div>
+        <div class="col-md-6 mb-3">
+            {{ form.marital_status.label(class="form-label") }}
+            {% for subfield in form.marital_status %}
+                <div class="form-check">
+                    {{ subfield(class="form-check-input") }}
+                    {{ subfield.label(class="form-check-label") }}
+                </div>
+            {% endfor %}
+            {% for error in form.marital_status.errors %}
+                <div class="invalid-feedback d-block">{{ error }}</div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            {{ form.dependents.label(class="form-label") }}
+            {% for subfield in form.dependents %}
+                <div class="form-check">
+                    {{ subfield(class="form-check-input") }}
+                    {{ subfield.label(class="form-check-label") }}
+                </div>
+            {% endfor %}
+            {% for error in form.dependents.errors %}
+                <div class="invalid-feedback d-block">{{ error }}</div>
+            {% endfor %}
+        </div>
+        <div class="col-md-6 mb-3">
+            {{ form.education.label(class="form-label") }}
+            {% for subfield in form.education %}
+                <div class="form-check">
+                    {{ subfield(class="form-check-input") }}
+                    {{ subfield.label(class="form-check-label") }}
+                </div>
+            {% endfor %}
+            {% for error in form.education.errors %}
+                <div class="invalid-feedback d-block">{{ error }}</div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            {{ form.self_employed.label(class="form-label") }}
+            {% for subfield in form.self_employed %}
+                <div class="form-check">
+                    {{ subfield(class="form-check-input") }}
+                    {{ subfield.label(class="form-check-label") }}
+                </div>
+            {% endfor %}
+            {% for error in form.self_employed.errors %}
+                <div class="invalid-feedback d-block">{{ error }}</div>
+            {% endfor %}
+        </div>
+        <div class="col-md-6 mb-3">
+            {{ form.applicant_income.label(class="form-label") }}
+            {{ form.applicant_income(class="form-control", type="number", min="0") }}
+            {% for error in form.applicant_income.errors %}
+                <div class="invalid-feedback d-block">{{ error }}</div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            {{ form.co_applicant_income.label(class="form-label") }}
+            {{ form.co_applicant_income(class="form-control", type="number", min="0", placeholder="0 if none") }}
+        </div>
+        <div class="col-md-6 mb-3">
+            {{ form.loan_amount.label(class="form-label") }}
+            {{ form.loan_amount(class="form-control", type="number", min="1") }}
+            {% for error in form.loan_amount.errors %}
+                <div class="invalid-feedback d-block">{{ error }}</div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            {{ form.loan_term.label(class="form-label") }}
+            {% for subfield in form.loan_term %}
+                <div class="form-check">
+                    {{ subfield(class="form-check-input") }}
+                    {{ subfield.label(class="form-check-label") }}
+                </div>
+            {% endfor %}
+            {% for error in form.loan_term.errors %}
+                <div class="invalid-feedback d-block">{{ error }}</div>
+            {% endfor %}
+        </div>
+        <div class="col-md-6 mb-3">
+            {{ form.credit_history.label(class="form-label") }}
+            {% for subfield in form.credit_history %}
+                <div class="form-check">
+                    {{ subfield(class="form-check-input") }}
+                    {{ subfield.label(class="form-check-label") }}
+                </div>
+            {% endfor %}
+            {% for error in form.credit_history.errors %}
+                <div class="invalid-feedback d-block">{{ error }}</div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="mb-3">
+        {{ form.property_area.label(class="form-label") }}
+        {% for subfield in form.property_area %}
+            <div class="form-check">
+                {{ subfield(class="form-check-input") }}
+                {{ subfield.label(class="form-check-label") }}
+            </div>
+        {% endfor %}
+        {% for error in form.property_area.errors %}
+            <div class="invalid-feedback d-block">{{ error }}</div>
+        {% endfor %}
+    </div>
+
+    {{ form.submit(class="btn btn-success w-100") }}
+</form>
+{% endblock %}
