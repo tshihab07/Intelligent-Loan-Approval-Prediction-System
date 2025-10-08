@@ -1,0 +1,68 @@
+<!-- templates/index.html -->
+{% extends "base.html" %}
+
+{% block title %}Loan Application - Step 1{% endblock %}
+
+{% block content %}
+<h2 class="text-center mb-4">Loan Approval Prediction System</h2>
+<p class="text-center">Please provide your basic information to begin.</p>
+
+<!-- In templates/index.html -->
+<form method="POST" action="{{ url_for('main.apply') }}" class="needs-validation" novalidate>
+    {{ form.hidden_tag() }}
+    <div class="mb-3">
+        {{ form.full_name.label(class="form-label") }}
+        {{ form.full_name(class="form-control", placeholder="John Doe") }}
+        {% for error in form.full_name.errors %}
+            <div class="invalid-feedback">{{ error }}</div>
+        {% endfor %}
+    </div>
+    <div class="mb-3">
+        {{ form.mobile_number.label(class="form-label") }}
+        {{ form.mobile_number(class="form-control", placeholder="+1234567890") }}
+        {% for error in form.mobile_number.errors %}
+            <div class="invalid-feedback">{{ error }}</div>
+        {% endfor %}
+    </div>
+    <div class="mb-3">
+        {{ form.address.label(class="form-label") }}
+        {{ form.address(class="form-control", placeholder="123 Main St") }}
+        {% for error in form.address.errors %}
+            <div class="invalid-feedback">{{ error }}</div>
+        {% endfor %}
+    </div>
+    <div class="mb-3">
+        {{ form.street.label(class="form-label") }}
+        {{ form.street(class="form-control", placeholder="Apt 4B") }}
+    </div>
+    <div class="mb-3">
+        {{ form.zip_code.label(class="form-label") }}
+        {{ form.zip_code(class="form-control", placeholder="12345") }}
+        {% for error in form.zip_code.errors %}
+            <div class="invalid-feedback">{{ error }}</div>
+        {% endfor %}
+    </div>
+    <div class="mb-3">
+        {{ form.current_city.label(class="form-label") }}
+        {{ form.current_city(class="form-control", placeholder="New York") }}
+        {% for error in form.current_city.errors %}
+            <div class="invalid-feedback">{{ error }}</div>
+        {% endfor %}
+    </div>
+    <div class="mb-3">
+        {{ form.email.label(class="form-label") }}
+        {{ form.email(class="form-control", placeholder="john@example.com") }}
+        {% for error in form.email.errors %}
+            <div class="invalid-feedback">{{ error }}</div>
+        {% endfor %}
+    </div>
+    <div class="mb-3">
+        {{ form.nid.label(class="form-label") }}
+        {{ form.nid(class="form-control", placeholder="123456789") }}
+        {% for error in form.nid.errors %}
+            <div class="invalid-feedback">{{ error }}</div>
+        {% endfor %}
+    </div>
+    {{ form.submit(class="btn btn-primary w-100") }}
+</form>
+{% endblock %}
