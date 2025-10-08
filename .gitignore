@@ -1,4 +1,3 @@
 .venv
-sample.py
-notes.txt
-sample_update_CV.py
+__pycache__
+loan_app.db
