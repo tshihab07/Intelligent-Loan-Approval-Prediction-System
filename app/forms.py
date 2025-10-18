@@ -3,14 +3,17 @@ from wtforms import StringField, SubmitField, RadioField, IntegerField, Password
 from wtforms.validators import DataRequired, Email, NumberRange, Length
 
 class UserInfoForm(FlaskForm):
-    full_name = StringField('Full Name', validators=[DataRequired()])
-    mobile_number = StringField('Mobile Number', validators=[DataRequired()])
+    # These 4 fields are REQUIRED
+    full_name = StringField('Full Name', validators=[DataRequired(message="Full Name is required")])
+    mobile_number = StringField('Mobile Number', validators=[DataRequired(message="Mobile Number is required")])
+    current_city = StringField('Current City', validators=[DataRequired(message="Current City is required")])
+    nid = StringField('NID', validators=[DataRequired(message="NID is required")])
+    
+    # Optional fields
     address = StringField('Address', validators=[DataRequired()])
     street = StringField('Street (Optional)')
     zip_code = StringField('Zip Code', validators=[DataRequired()])
-    current_city = StringField('Current City', validators=[DataRequired()])
     email = StringField('Email (Optional)', validators=[Email()])
-    nid = StringField('NID', validators=[DataRequired()])
     submit = SubmitField('Continue to Loan Application')
 
 class LoanApplicationForm(FlaskForm):
