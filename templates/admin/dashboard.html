@@ -1,4 +1,3 @@
-<!-- templates/admin/dashboard.html -->
 {% extends "base.html" %}
 
 {% block title %}Admin Dashboard{% endblock %}
@@ -40,25 +39,29 @@
                 <table class="table table-hover">
                     <thead>
                         <tr>
-                            <th>ID</th>
-                            <th>Applicant</th>
+                            <th>Date</th>
+                            <th>Loan ID</th>
+                            <th>Applicant Name</th>
+                            <th>Mobile Number</th>
+                            <th>Address</th>
+                            <th>City</th>
                             <th>Loan Amount</th>
                             <th>Status</th>
-                            <th>Probability</th>
-                            <th>Date</th>
                         </tr>
                     </thead>
                     <tbody>
                         {% for app in applications.items %}
                         <tr>
-                            <td>#{{ app.id }}</td>
+                            <td>{{ app.timestamp.strftime('%Y-%m-%d') }}</td>
+                            <td>#{{ "%06d"|format(app.loan_id) }}</td>
                             <td>{{ app.full_name }}</td>
+                            <td>{{ app.mobile_number }}</td>
+                            <td>{{ app.address }}{% if app.street %}, {{ app.street }}{% endif %}</td>
+                            <td>{{ app.current_city }}</td>
                             <td>${{ "%.2f"|format(app.loan_amount) }}</td>
                             <td>
                                 <span class="badge bg-{{ app.status_color }}">{{ app.status }}</span>
                             </td>
-                            <td>{{ "%.2f"|format(app.probability * 100) }}%</td>
-                            <td>{{ app.timestamp.strftime('%Y-%m-%d %H:%M') }}</td>
                         </tr>
                         {% endfor %}
                     </tbody>
