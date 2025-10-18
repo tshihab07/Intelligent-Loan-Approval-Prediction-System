@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block title %}Home - Intelligent Loan Approval Forecasting{% endblock %}
+
+{% block content %}
+<div class="text-center">
+    <h1 class="display-4 mb-4">Intelligent Loan Approval Forecasting</h1>
+    <p class="lead mb-5">AI-powered loan approval prediction system for financial institutions</p>
+    
+    <!-- Action Buttons -->
+    <div class="row justify-content-center mb-5">
+        <div class="col-md-4">
+            <a href="{{ url_for('main.basic_info') }}" class="btn btn-success btn-lg w-100 py-3 mb-3">
+                <i class="fas fa-file-alt me-2"></i>Apply For The Loan
+            </a>
+        </div>
+        <div class="col-md-4">
+            <a href="{{ url_for('main.login') }}" class="btn btn-info btn-lg w-100 py-3 mb-3">
+                <i class="fas fa-user-shield me-2"></i>Admin Login
+            </a>
+        </div>
+    </div>
+    
+    <!-- Loan Status Search -->
+    <div class="card mx-auto" style="max-width: 500px;">
+        <div class="card-body">
+            <h5 class="card-title">Check Loan Status</h5>
+            <form method="GET" action="{{ url_for('main.check_loan_status') }}">
+                <div class="mb-3">
+                    <label for="loan_id" class="form-label">Enter your 6-digit Loan ID</label>
+                    <input type="text" 
+                           class="form-control form-control-lg" 
+                           id="loan_id" 
+                           name="loan_id" 
+                           placeholder="e.g., 123456"
+                           maxlength="6"
+                           pattern="[0-9]{6}"
+                           required>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Check Status</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Font Awesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+{% endblock %}
