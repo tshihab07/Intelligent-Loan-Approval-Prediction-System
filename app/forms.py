@@ -9,11 +9,11 @@ class UserInfoForm(FlaskForm):
     current_city = StringField('Current City', validators=[DataRequired(message="Current City is required")])
     nid = StringField('NID', validators=[DataRequired(message="NID is required")])
     
-    # Optional fields
+    # Optional fields (no email validation)
     address = StringField('Address', validators=[DataRequired()])
     street = StringField('Street (Optional)')
     zip_code = StringField('Zip Code', validators=[DataRequired()])
-    email = StringField('Email (Optional)', validators=[Email()])
+    email = StringField('Email (Optional)')
     submit = SubmitField('Continue to Loan Application')
 
 class LoanApplicationForm(FlaskForm):
