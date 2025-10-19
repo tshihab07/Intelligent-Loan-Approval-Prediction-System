@@ -1,3 +1,4 @@
+<!-- templates/basic-information.html -->
 {% extends "base.html" %}
 
 {% block title %}Basic Information{% endblock %}
@@ -6,7 +7,8 @@
 <h2 class="text-center mb-4">Basic Information</h2>
 <p class="text-center">Please provide your basic information to begin.</p>
 
-<form method="POST" action="{{ url_for('main.apply') }}" class="needs-validation" novalidate>
+<!-- 👇 Fixed: Submit to same page, not directly to apply -->
+<form method="POST" class="needs-validation" novalidate>
     {{ form.hidden_tag() }}
     <div class="mb-3">
         {{ form.full_name.label(class="form-label") }}
