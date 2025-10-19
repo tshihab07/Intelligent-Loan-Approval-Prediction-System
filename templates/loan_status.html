@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+
+{% block title %}Loan Status - #{{ application.loan_id }}{% endblock %}
+
+{% block content %}
+<div class="text-center">
+    <h2>Loan Application Details</h2>
+    <p class="lead">Loan ID: <strong>#{{ "%06d"|format(application.loan_id) }}</strong></p>
+    
+    {% if application.status == "Approved" %}
+        <div class="alert alert-success mt-4" style="font-size: 1.5rem; font-weight: bold; padding: 1.5rem;">
+            🎉 <strong>APPROVED</strong>
+        </div>
+    {% else %}
+        <div class="alert alert-danger mt-4" style="font-size: 1.5rem; font-weight: bold; padding: 1.5rem;">
+            ❌ <strong>REJECTED</strong>
+        </div>
+    {% endif %}
+    
+    <div class="card mt-4">
+        <div class="card-body">
+            <h5 class="card-title">Applicant Information</h5>
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <strong>Name:</strong> {{ application.full_name }}
+                </div>
+                <div class="col-md-6">
+                    <strong>Mobile:</strong> {{ application.mobile_number }}
+                </div>
+            </div>
+            <div class="mb-3">
+                <strong>Address:</strong> 
+                {{ application.address }}{% if application.street %}, {{ application.street }}{% endif %}, {{ application.zip_code }}
+            </div>
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <strong>City:</strong> {{ application.current_city }}
+                </div>
+                <div class="col-md-6">
+                    <strong>NID:</strong> {{ application.nid }}
+                </div>
+            </div>
+            {% if application.email %}
+                <div class="mb-3">
+                    <strong>Email:</strong> {{ application.email }}
+                </div>
+            {% endif %}
+            
+            <hr>
+            
+            <h5 class="card-title">Loan Details</h5>
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <strong>Loan Amount:</strong> ${{ "%.2f"|format(application.loan_amount) }}
+                </div>
+                <div class="col-md-6">
+                    <strong>Status:</strong> 
+                    <span class="badge bg-{{ application.status_color }}">{{ application.status }}</span>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <strong>Approval Probability:</strong> {{ "%.2f"|format(application.probability * 100) }}%
+                </div>
+                <div class="col-md-6">
+                    <strong>Date Applied:</strong> {{ application.timestamp.strftime('%Y-%m-%d %H:%M') }}
+                </div>
+            </div>
+            
+            {% if application.status == "Rejected" %}
+                <div class="mt-3">
+                    <strong>Re-apply in:</strong> 
+                    {% if days_remaining > 0 %}
+                        {{ days_remaining }} days
+                    {% else %}
+                        <span class="text-success">Now</span>
+                    {% endif %}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+    
+    <div class="mt-4">
+        <a href="{{ url_for('main.index') }}" class="btn btn-outline-primary">Go to Home</a>
+        <a href="javascript:history.back()" class="btn btn-outline-secondary">Back</a>
+    </div>
+</div>
+{% endblock %}
