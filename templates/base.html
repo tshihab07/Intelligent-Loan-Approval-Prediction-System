@@ -4,14 +4,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Loan Approval Prediction{% endblock %}</title>
+    <title>{% block title %}Intelligent Loan Approval Forecasting{% endblock %}</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
+    <!-- Plain Navigation (no colored header) -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+        <div class="container">
+            <div class="navbar-nav ms-auto">
+                {% if request.endpoint and request.endpoint != 'main.index' %}
+                    <a class="nav-link" href="{{ url_for('main.index') }}">Home</a>
+                {% endif %}
+                <!-- 👇 FIXED: Don't show "Back" on admin dashboard -->
+                {% if request.endpoint and request.endpoint not in ['main.index', 'main.basic_info', 'main.admin_dashboard'] %}
+                    <a class="nav-link" href="javascript:history.back()">Back</a>
+                {% endif %}
+                {% if current_user.is_authenticated %}
+                    <a class="nav-link" href="{{ url_for('main.logout') }}">Logout</a>
+                {% endif %}
+            </div>
+        </div>
+    </nav>
+    
     <div class="container mt-4">
         {% block content %}{% endblock %}
     </div>
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
