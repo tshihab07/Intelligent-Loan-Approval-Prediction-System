@@ -1,11 +1,9 @@
-# app/models.py
 import joblib
 import pandas as pd
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
-from app import db, login_manager  # 👈 Import login_manager here
+from app import db, login_manager
 
-# Load model
 model = joblib.load("artifacts/models/xgboost.pkl")
 
 FEATURES = [
@@ -28,7 +26,7 @@ class User(UserMixin, db.Model):
 
 class LoanApplication(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    # User Info
+    loan_id = db.Column(db.Integer, unique=True, nullable=False)  # 6-digit unique ID
     full_name = db.Column(db.String(100), nullable=False)
     mobile_number = db.Column(db.String(20), nullable=False)
     address = db.Column(db.String(200), nullable=False)
@@ -37,8 +35,6 @@ class LoanApplication(db.Model):
     current_city = db.Column(db.String(50), nullable=False)
     email = db.Column(db.String(100))
     nid = db.Column(db.String(20), nullable=False)
-    
-    # Loan Info
     gender = db.Column(db.String(10), nullable=False)
     marital_status = db.Column(db.String(20), nullable=False)
     dependents = db.Column(db.String(10), nullable=False)
@@ -50,8 +46,6 @@ class LoanApplication(db.Model):
     loan_term = db.Column(db.Integer, nullable=False)
     credit_history = db.Column(db.String(10), nullable=False)
     property_area = db.Column(db.String(20), nullable=False)
-    
-    # Prediction Results
     prediction = db.Column(db.Integer, nullable=False)
     probability = db.Column(db.Float, nullable=False)
     timestamp = db.Column(db.DateTime, default=db.func.current_timestamp())
@@ -64,13 +58,11 @@ class LoanApplication(db.Model):
     def status_color(self):
         return "success" if self.prediction == 1 else "danger"
 
-# 👇 NOW THIS WILL WORK 👇
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.get(int(user_id))
 
 def predict_loan_approval(user_data):
-    """Transform user input and predict"""
     applicant_income = float(user_data['applicant_income'])
     co_applicant_income = float(user_data['co_applicant_income']) if user_data['co_applicant_income'] else 0.0
     total_income = applicant_income + co_applicant_income
