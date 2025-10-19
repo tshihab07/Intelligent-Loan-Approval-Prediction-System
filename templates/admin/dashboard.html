@@ -1,3 +1,4 @@
+<!-- templates/admin/dashboard.html -->
 {% extends "base.html" %}
 
 {% block title %}Admin Dashboard{% endblock %}
@@ -50,6 +51,7 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <!-- 👇 FIXED: Use 'app' instead of 'application' -->
                         {% for app in applications.items %}
                         <tr>
                             <td>{{ app.timestamp.strftime('%Y-%m-%d') }}</td>
