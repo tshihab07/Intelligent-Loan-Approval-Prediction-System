@@ -1,4 +1,3 @@
-<!-- templates/base.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,23 +8,24 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
-    <!-- Plain Navigation (no colored header) -->
+    <!-- Conditionally hide navigation on admin pages -->
+    {% if request.endpoint != 'main.admin_dashboard' %}
     <nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
         <div class="container">
             <div class="navbar-nav ms-auto">
                 {% if request.endpoint and request.endpoint != 'main.index' %}
-                    <a class="nav-link" href="{{ url_for('main.index') }}">Home</a>
+                    <a class="nav-link btn btn-outline-primary" href="{{ url_for('main.index') }}">Home</a>
                 {% endif %}
-                <!-- 👇 FIXED: Don't show "Back" on admin dashboard -->
-                {% if request.endpoint and request.endpoint not in ['main.index', 'main.basic_info', 'main.admin_dashboard'] %}
-                    <a class="nav-link" href="javascript:history.back()">Back</a>
+                {% if request.endpoint and request.endpoint not in ['main.index', 'main.basic_info'] %}
+                    <a class="nav-link btn btn-outline-secondary" href="javascript:history.back()">Back</a>
                 {% endif %}
                 {% if current_user.is_authenticated %}
-                    <a class="nav-link" href="{{ url_for('main.logout') }}">Logout</a>
+                    <a class="nav-link btn btn-outline-danger" href="{{ url_for('main.logout') }}">Logout</a>
                 {% endif %}
             </div>
         </div>
     </nav>
+    {% endif %}
     
     <div class="container mt-4">
         {% block content %}{% endblock %}
