@@ -38,3 +38,4 @@ Flask-SQLAlchemy==3.0.5
 Flask-Login==0.6.3
 Flask-WTF==1.1.1
 gunicorn==21.2.0
+email_validator==2.0.0
