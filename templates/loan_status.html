@@ -8,11 +8,11 @@
     <p class="lead">Loan ID: <strong>#{{ "%06d"|format(application.loan_id) }}</strong></p>
     
     {% if application.status == "Approved" %}
-        <div class="alert alert-success mt-4" style="font-size: 1.5rem; font-weight: bold; padding: 1.5rem;">
+        <div class="alert alert-success mt-4" style="font-size: 1.2rem; font-weight: bold; padding: 0.7rem;">
             🎉 <strong>APPROVED</strong>
         </div>
     {% else %}
-        <div class="alert alert-danger mt-4" style="font-size: 1.5rem; font-weight: bold; padding: 1.5rem;">
+        <div class="alert alert-danger mt-4" style="font-size: 1.2rem; font-weight: bold; padding: 0.7rem;">
             ❌ <strong>REJECTED</strong>
         </div>
     {% endif %}
@@ -80,9 +80,5 @@
         </div>
     </div>
     
-    <div class="mt-4">
-        <a href="{{ url_for('main.index') }}" class="btn btn-outline-primary">Go to Home</a>
-        <a href="javascript:history.back()" class="btn btn-outline-secondary">Back</a>
-    </div>
 </div>
 {% endblock %}
