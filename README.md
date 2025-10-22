@@ -176,6 +176,7 @@ This weighted approach prioritizes:
 - Generalization (penalizing overfitting and high variance)
 
 **Modeling Flowchart**
+```mermaid
 flowchart TD
     %% Data Preparation & Feature Engineering
     A["CleanedLoanData.csv"] --> B["Feature-Target Separation\nLoanStatus = Target"]
