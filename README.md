@@ -176,59 +176,54 @@ This weighted approach prioritizes:
 - Generalization (penalizing overfitting and high variance)
 
 **Modeling Flowchart**
-```mermaid
 flowchart TD
     %% Data Preparation & Feature Engineering
-    A[CleanedLoanData.csv] --> B[Feature-Target Separation\nLoanStatus = Target]
-    B --> C[Feature Engineering]
-    C --> C1[TotalIncome = Applicant + Co-Applicant Income]
-    C --> C2[IncomeLoanRatio = TotalIncome / Loan Amount]
-    C --> C3[Has_CoApplicantIncome = Binary Flag]
-    C --> C4[One-Hot Encoding:\nGender, Married, Education,\nPropertyArea, SelfEmployed]
-    C1 --> D[Train-Test Split\n80-20 Stratified]
+    A["CleanedLoanData.csv"] --> B["Feature-Target Separation\nLoanStatus = Target"]
+    B --> C["Feature Engineering"]
+    C --> C1["TotalIncome = Applicant + Co-Applicant Income"]
+    C --> C2["IncomeLoanRatio = TotalIncome / Loan Amount"]
+    C --> C3["Has_CoApplicantIncome = Binary Flag"]
+    C --> C4["One-Hot Encoding:\nGender, Married, Education,\nPropertyArea, SelfEmployed"]
+    C1 --> D["Train-Test Split\n80-20 Stratified"]
     C2 --> D
     C3 --> D
     C4 --> D
-    D --> E[5-Fold Stratified CV Setup]
+    D --> E["5-Fold Stratified CV Setup"]
 
     %% Model Evaluation Framework
-    E --> F[Model Evaluation Framework]
-    F --> F1[Primary Metrics:\nAUC-ROC, AUC-PR, F1-Score, Accuracy]
-    F --> F2[Robustness Assessment:\nCV Scores (Mean ± Std)]
-    F --> F3[Overfitting Analysis:\nTrain-Test Performance Gap]
-    F --> F4[Threshold Optimization:\nF1-Score Maximization]
+    E --> F["Model Evaluation Framework"]
+    F --> F1["Primary Metrics:\nAUC-ROC, AUC-PR, F1-Score, Accuracy"]
+    F --> F2["Robustness Assessment:\nCV Scores (Mean ± Std)"]
+    F --> F3["Overfitting Analysis:\nTrain-Test Performance Gap"]
+    F --> F4["Threshold Optimization:\nF1-Score Maximization"]
 
     %% Model Selection & Composite Scoring
-    F1 --> G[Model Selection & Composite Scoring]
+    F1 --> G["Model Selection & Composite Scoring"]
     F2 --> G
     F3 --> G
     F4 --> G
-    G --> G1[Robustness: CV Mean (30%)]
-    G --> G2[Discriminative Power: AUC-ROC (25%)]
-    G --> G3[Balanced Performance: F1-Score (25%)]
-    G --> G4[Generalization: Penalty for\nOverfitting & High Variance (20%)]
+    G --> G1["Robustness: CV Mean (30%)"]
+    G --> G2["Discriminative Power: AUC-ROC (25%)"]
+    G --> G3["Balanced Performance: F1-Score (25%)"]
+    G --> G4["Generalization: Penalty for\nOverfitting & High Variance (20%)"]
 
     %% Final Model Comparison
-    G1 --> H[Final Model Comparison]
+    G1 --> H["Final Model Comparison"]
     G2 --> H
     G3 --> H
     G4 --> H
-    
-    H --> I[XGBoost (Optuna)\n✅ COMPOSITE SCORE: 0.869\n• AUC-ROC: 0.865\n• F1-Score: 0.903\n• CV Mean: 0.776\n• CV Std: 0.038\n• Overfitting Gap: 0.009\n🏆 SELECTED MODEL]
-    
-    H --> J[Random Forest (GridSearchCV)\nComposite Score: 0.866\n• Highest CV Mean: 0.778\n• AUC-ROC: 0.875\n• F1-Score: 0.891]
-    
-    H --> K[LightGBM (Optuna)\nComposite Score: 0.860\n• Lowest CV Std: 0.027\n• High Stability]
-    
-    H --> L[Neural Network\nComposite Score: 0.838\n• High Test F1: 0.917\n• Poor CV: 0.698 ± 0.091\n• High Variance]
-    
-    H --> M[SVC (BayesSearchCV)\nComposite Score: 0.720\n• Poor CV Mean: 0.478\n• Needs Improvement]
+
+    H --> I["XGBoost (Optuna)\nCOMPOSITE SCORE: 0.869\nAUC-ROC: 0.865\nF1-Score: 0.903\nCV Mean: 0.776\nCV Std: 0.038\nOverfitting Gap: 0.009\nSELECTED MODEL"]
+    H --> J["Random Forest (GridSearchCV)\nComposite Score: 0.866\nHighest CV Mean: 0.778\nAUC-ROC: 0.875\nF1-Score: 0.891"]
+    H --> K["LightGBM (Optuna)\nComposite Score: 0.860\nLowest CV Std: 0.027\nHigh Stability"]
+    H --> L["Neural Network\nComposite Score: 0.838\nHigh Test F1: 0.917\nPoor CV: 0.698 ± 0.091\nHigh Variance"]
+    H --> M["SVC (BayesSearchCV)\nComposite Score: 0.720\nPoor CV Mean: 0.478\nNeeds Improvement"]
 
     %% Styling
     classDef selected fill:#d4edda,stroke:#28a745,color:#155724;
     classDef good fill:#fff3cd,stroke:#ffc107,color:#856404;
     classDef fair fill:#f8d7da,stroke:#dc3545,color:#721c24;
-    
+
     class I selected
     class J,K good
     class L,M fair
