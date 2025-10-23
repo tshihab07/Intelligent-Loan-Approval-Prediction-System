@@ -15,8 +15,9 @@ def create_app():
         template_folder=os.path.join(project_root, 'templates'),
         static_folder=os.path.join(project_root, 'static')
     )
+
     
-    app.config['SECRET_KEY'] = 'your-secret-key-change-in-production'
+    app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'dev-secret-key-change-me')    
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///loan_app.db'
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     
