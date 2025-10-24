@@ -2,6 +2,8 @@
 
 > **AI-powered loan approval prediction system for financial institutions using machine learning**
 
+![Landing Page of the Intelligent Loan Approval Prediction System](images\LandingPage.png)
+
 ---
 
 ## 📋 Table of Contents
@@ -12,7 +14,6 @@
     - [Dataset Description](#dataset-description)
     - [Libraries Description](#libraries-description)
 - [Modeling Pipeline](#modeling-pipeline)
-    - [Model Selection](#model-selection)
     - [Overall Model Overview](#overall-model-overview)
     - [Best Performing Model](#best-performing-model)
 - [File Structure](#file-structure)
@@ -20,7 +21,6 @@
 - [Installation](#installation)
 - [Technical Architecture](#technical-architecture)
 - [Technical Implementation](#technical-implementation)
-- [Model Comparison & Selection](#model-comparison--selection)
 - [Deployment](#deployment)
 - [Future Enhancements](#future-enhancements)
 - [Contributing](#contributing)
@@ -493,6 +493,11 @@ graph TD
   - **Admin user**
 
 ---
+
+## Deployment
+This forecasting system is deployed on render.com, allowing users to easily input applicant details and receive instant loan approval predictions through a live web interface. This deployment ensures smooth accessibility, real-time inference, and a production-ready environment for showcasing the model’s performance.
+
+**Live Demo:** [Intelligent Loan Approval Forecasting](https://loan-approval-forecasting.onrender.com/)
 
 ## Future Enhancements
 - **Persistent Database:** Migrate to PostgreSQL for data persistence
