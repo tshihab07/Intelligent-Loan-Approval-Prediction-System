@@ -2,7 +2,7 @@
 
 > **AI-powered loan approval prediction system for financial institutions using machine learning**
 
-![Landing Page of the Intelligent Loan Approval Prediction System](images\LandingPage.png)
+![Landing Page of the Intelligent Loan Approval Prediction System](images/LandingPage.png)
 
 ---
 
