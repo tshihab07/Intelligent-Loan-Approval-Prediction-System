@@ -354,7 +354,7 @@ LoanApprovalPredictionSystem/
 
 ## Dependencies
 
-```python
+```bash
 # Core data manipulation and numerical computing
 pandas>=1.5.0
 numpy>=1.21.0
@@ -499,6 +499,8 @@ graph TD
 This forecasting system is deployed on render.com, allowing users to easily input applicant details and receive instant loan approval predictions through a live web interface. This deployment ensures smooth accessibility, real-time inference, and a production-ready environment for showcasing the model’s performance.
 
 **Live Demo:** [Intelligent Loan Approval Forecasting](https://loan-approval-forecasting.onrender.com/)
+
+---
 
 ## Future Enhancements
 - **Persistent Database:** Migrate to PostgreSQL for data persistence
