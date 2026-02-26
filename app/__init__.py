@@ -2,6 +2,9 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 import os
+from app.routes import bp as main_bp
+from app.models import User
+
 
 db = SQLAlchemy()
 login_manager = LoginManager()
@@ -15,7 +18,6 @@ def create_app():
         template_folder=os.path.join(project_root, 'templates'),
         static_folder=os.path.join(project_root, 'static')
     )
-
     
     app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'dev-secret-key-change-me')    
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///loan_app.db'
@@ -25,12 +27,10 @@ def create_app():
     login_manager.init_app(app)
     login_manager.login_view = 'main.login'
     
-    from app.routes import bp as main_bp
     app.register_blueprint(main_bp)
     
     with app.app_context():
         db.create_all()
-        from app.models import User
         
         # Create admin user only if it doesn't exist
         admin_user = User.query.filter_by(username='admin').first()
@@ -39,8 +39,9 @@ def create_app():
             admin.set_password('admin123')
             db.session.add(admin)
             db.session.commit()
-            print("✅ Admin user created successfully!")
+            print("Admin user created successfully!")
+        
         else:
-            print("✅ Admin user already exists.")
+            print("Admin user already exists.")
     
     return app
