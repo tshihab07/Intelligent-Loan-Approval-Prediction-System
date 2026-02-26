@@ -24,6 +24,7 @@ class User(UserMixin, db.Model):
     def check_password(self, password):
         return check_password_hash(self.password_hash, password)
 
+
 class LoanApplication(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     loan_id = db.Column(db.Integer, unique=True, nullable=False)  # 6-digit unique ID
@@ -58,9 +59,11 @@ class LoanApplication(db.Model):
     def status_color(self):
         return "success" if self.prediction == 1 else "danger"
 
+
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.get(int(user_id))
+
 
 def predict_loan_approval(user_data):
     applicant_income = float(user_data['applicant_income'])
